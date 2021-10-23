@@ -1,4 +1,4 @@
-const $ = new Env('抽奖活动');
+const $ = new Env('城城领现金单抽奖活动');
 const notify = $.isNode() ? require('./sendNotify') : ''; //消息推送
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : ''; //读取jdcookie
