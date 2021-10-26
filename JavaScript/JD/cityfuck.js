@@ -1,3 +1,7 @@
+// 一次尝试
+// 自用
+
+
 const $ = new Env('城城领现金单抽奖活动');
 const notify = $.isNode() ? require('./sendNotify') : ''; //消息推送
 //Node.js用户请在jdCookie.js处填写京东ck;
