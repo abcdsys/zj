@@ -14,11 +14,12 @@ var config = {
 
 axios(config)
     .then( (resp) =>{
-        // console.log(JSON.stringify(resp.data));
-        const jumpUrl = resp.data['data']['jumpUrl']
-        console.log(jumpUrl)
-        // const inviteId = jumpUrl.split('inviteId=')[-1].split('&mpin')[0].split('&encryptedPin')[0]
-        // console.log("This inviteId is:\n" + inviteId)
+        data = JSON.parse(data);
+        jumpUrl = data['data']['jumpUrl']
+        // console.log(jumpUrl)
+        let inviteId = jumpUrl.match(/inviteId=(\S*?)&/)[1]
+        console.log(inviteId)
+        
     })
     .catch(function (err) {
         console.log(err);
