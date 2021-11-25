@@ -54,10 +54,12 @@ function chingMingFestival() {
     let startDate = Date.parse(fishMan);
     let endDate = Date.parse(nextChingMingFestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
-    if (month !== 3 && d !== 4) {
-        console.log(`距离清明节还有${days}天`)
-    } else {
+    if ((month == 3) && (d == 4)) {
         console.log(`今天就是清明节`)
+
+    } else {
+        console.log(`距离清明节还有${days}天`)
+
     }
     return days
 }
