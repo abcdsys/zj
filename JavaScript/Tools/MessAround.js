@@ -28,13 +28,15 @@ let getWeekDay = fishMan.getDay()
 let nowweekday = weekday[getWeekDay]
 
 function weekend(item) {
-    if (item > 0 && item < 5) {
-        item = 5 - item
+    console.log(item)
+    if (item > 0 && item <= 5) {
+        item = 6 - item
         console.log(`距离周末还有${item}天`)
     } else {
         console.log('好好享受周末吧')
     }
 }
+
 
 function newYearSDay() {
     var nextNewYearDay = new Date(`${year + 1}`)
