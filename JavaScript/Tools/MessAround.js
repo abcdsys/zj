@@ -37,26 +37,14 @@ function weekend() {
 }
 var startDate = Date.parse(fishMan);
 
-function newYearSDay() {
-    var nextNewYearDay = new Date(`${year + 1},1,1`)
-    var endDate = Date.parse(nextNewYearDay);
-    var days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
-    if (month !== 0 && day !== 1) {
-        console.log(`距离元旦还有${days}天`)
-    } else {
-        console.log(`今天就是元旦`)
-    }
-    return days
-}
-
-function chingMingFestival() {
-    let nextChingMingFestival = new Date(`${year + 1},4,4`)
-    let endDate = Date.parse(nextChingMingFestival);
+function festival(chinese, fmonth, fday) {
+    let newfestival = new Date(`${year + 1},${fmonth},${fday}`)
+    let endDate = Date.parse(newfestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
-    if ((month == 3) && (day == 4)) {
-        console.log(`今天就是清明节`)
+    if ((month == fmonth) && (day == fday)) {
+        console.log(`今天就是${chinese}节`)
     } else {
-        console.log(`距离清明节还有${days}天`)
+        console.log(`距离${chinese}节还有${days}天`)
     }
     return days
 }
@@ -75,8 +63,9 @@ function lastInfo() {
 function main() {
     headInfo()
     weekend()
-    newYearSDay()
-    chingMingFestival()
+    festival('元旦', 1, 1)
+    festival('清明', 4, 4)
+    festival('国庆', 10, 1)
     lastInfo()
 }
 main()
