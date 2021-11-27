@@ -7,20 +7,20 @@
 var fishMan = new Date()
 var year = fishMan.getFullYear()
 var month = fishMan.getMonth();
-var d = fishMan.getDate();
-var h = fishMan.getHours()
+var day = fishMan.getDate();
+var hour = fishMan.getHours()
 
 function headInfo() {
     var mae = ''
-    if (h >= 6 && h < 12) {
+    if (hour >= 6 && hour < 12) {
         mae = '上午'
-    } else if (h >= 12 && h < 18) {
+    } else if (hour >= 12 && hour < 18) {
         mae = '下午'
-    } else if ((h >= 18 && h < 24) || h < 6) {
+    } else if ((hour >= 18 && hour < 24) || hour < 6) {
         mae = '晚上'
     }
     console.log(`【摸鱼办】
-提醒您：${month + 1}月${d}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
+提醒您：${month + 1}月${day}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
 有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的!`)
 }
 var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -41,7 +41,7 @@ function newYearSDay() {
     var startDate = Date.parse(fishMan);
     var endDate = Date.parse(nextNewYearDay);
     var days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
-    if (month + d !== 1) {
+    if (month + day !== 1) {
         console.log(`距离元旦还有${days}天`)
     } else {
         console.log(`今天就是元旦`)
@@ -54,7 +54,7 @@ function chingMingFestival() {
     let startDate = Date.parse(fishMan);
     let endDate = Date.parse(nextChingMingFestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
-    if ((month == 3) && (d == 4)) {
+    if ((month == 3) && (day == 4)) {
         console.log(`今天就是清明节`)
     } else {
         console.log(`距离清明节还有${days}天`)
