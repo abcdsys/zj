@@ -49,10 +49,6 @@ function festival(chinese, fmonth, fday) {
     return days
 }
 
-async function battle() {
-
-}
-
 function lastInfo() {
     let info = `上班是帮老板赚钱，摸鱼是赚老板的钱！最后，祝愿天下所有摸鱼人，都能愉快的渡过每一天…​`
     console.log(info)
