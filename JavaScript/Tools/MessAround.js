@@ -42,7 +42,7 @@ function festival(chinese, fmonth, fday) {
     let endDate = Date.parse(newfestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     if ((month == fmonth) && (day == fday)) {
-        console.log(`今天就是${chinese}节`)
+        console.log(`今天就是${chinese}节，好好享受！`)
     } else {
         console.log(`距离${chinese}节还有${days}天`)
     }
