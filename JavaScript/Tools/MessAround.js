@@ -35,13 +35,13 @@ function weekend() {
     }
     return item
 }
+var startDate = Date.parse(fishMan);
 
 function newYearSDay() {
-    var nextNewYearDay = new Date(`${year + 1}`)
-    var startDate = Date.parse(fishMan);
+    var nextNewYearDay = new Date(`${year + 1},1,1`)
     var endDate = Date.parse(nextNewYearDay);
     var days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
-    if (month + day !== 1) {
+    if (month !== 0 && day !== 1) {
         console.log(`距离元旦还有${days}天`)
     } else {
         console.log(`今天就是元旦`)
@@ -51,7 +51,6 @@ function newYearSDay() {
 
 function chingMingFestival() {
     let nextChingMingFestival = new Date(`${year + 1},4,4`)
-    let startDate = Date.parse(fishMan);
     let endDate = Date.parse(nextChingMingFestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     if ((month == 3) && (day == 4)) {
@@ -61,6 +60,7 @@ function chingMingFestival() {
     }
     return days
 }
+
 async function battle() {
 
 }
