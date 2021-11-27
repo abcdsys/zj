@@ -1,6 +1,6 @@
 /* 
  *@authot:  Mol
- *create: 2021-11-24-20点20分
+ *@create: 2021-11-24-20点20分
  */
 
 
@@ -80,7 +80,8 @@ function getOneSpeech() {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
-            console.log(myObj)
+            data=myObj['hitokoto']
+            console.log(data)
         }
     };
     xmlhttp.open("GET", "https://v1.hitokoto.cn/", true);
