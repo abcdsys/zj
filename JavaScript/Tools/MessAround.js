@@ -23,8 +23,6 @@ function headInfo() {
 提醒您：${month + 1}月${day}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
 有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的!`)
 }
-var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 function weekend() {
     let item = fishMan.getDay()
     if (item > 0 && item <= 5) {
