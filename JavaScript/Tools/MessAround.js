@@ -40,17 +40,17 @@ function weekend() {
 var startDate = Date.parse(fishMan);
 
 function festival(chinese, fmonth, fday) {
-    let data = ``
+    let info = ``
     let newfestival = new Date(`${year + 1},${fmonth},${fday}`)
     let endDate = Date.parse(newfestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     if (month == fmonth && day == fday) {
-        data=`今天就是${chinese}节，好好享受！`
+        info=`今天就是${chinese}节，好好享受！`
     } else {
-        data = `距离${chinese}节还有${days}天`
+        info = `距离${chinese}节还有${days}天`
     }
-    console.log(data)
-    return data
+    console.log(info)
+    return info
 }
 
 function lastInfo() {
