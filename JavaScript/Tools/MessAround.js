@@ -9,6 +9,7 @@ var year = fishMan.getFullYear()
 var month = fishMan.getMonth();
 var day = fishMan.getDate();
 var hour = fishMan.getHours()
+var msg = ''
 
 function headInfo() {
     var mae = ''
@@ -19,24 +20,24 @@ function headInfo() {
     } else if ((hour >= 18 && hour < 24) || hour < 6) {
         mae = '晚上'
     }
-    let data = `【摸鱼办】
+    let info = `【摸鱼办】
 提醒您：${month + 1}月${day}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
-有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的!`
-    console.log(data)
-    return data
+有事没事起身去茶水间， 去厕所， 去廊道走走别老在工位上坐着， 钱是老板的, 但命是自己的!\n `
+    msg += info
+    return info
 }
 
 function weekend() {
     let item = fishMan.getDay()
-    let data = ``
+    let info = ``
     if (item > 0 && item <= 5) {
         item = 6 - item
-        data = `距离周末还有${item}天`
+        info = `距离周末还有${item}天\n`
     } else {
-        data = '好好享受周末吧'
+        info = '好好享受周末吧\n'
     }
-    console.log(data)
-    return data
+    msg += info
+    return info
 }
 var startDate = Date.parse(fishMan);
 
@@ -46,17 +47,17 @@ function festival(chinese, fmonth, fday) {
     let endDate = Date.parse(newfestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     if (month == fmonth && day == fday) {
-        info = `今天就是${chinese}节，好好享受！`
+        info = `今天就是${chinese}节，好好享受！\n`
     } else {
-        info = `距离${chinese}节还有${days}天`
+        info = `距离${chinese}节还有${days}天\n`
     }
-    console.log(info)
+    msg += info
     return info
 }
 
 function lastInfo() {
-    let info = `上班是帮老板赚钱，摸鱼是赚老板的钱！最后，祝愿天下所有摸鱼人，都能愉快的渡过每一天…​`
-    console.log(info)
+    let info = `上班是帮老板赚钱，摸鱼是赚老板的钱！最后，祝愿天下所有摸鱼人，都能愉快的渡过每一天…\n​`
+    msg += info
     return info
 }
 
@@ -68,5 +69,6 @@ function main() {
     festival('清明', 4, 4)
     festival('国庆', 10, 1)
     lastInfo()
+    console.log(msg)
 }
 main()
