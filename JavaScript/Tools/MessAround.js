@@ -19,32 +19,38 @@ function headInfo() {
     } else if ((hour >= 18 && hour < 24) || hour < 6) {
         mae = '晚上'
     }
-    console.log(`【摸鱼办】
+    let data = `【摸鱼办】
 提醒您：${month + 1}月${day}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
-有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的!`)
+有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的!`
+    console.log(data)
 }
+
 function weekend() {
     let item = fishMan.getDay()
+    let data = ``
     if (item > 0 && item <= 5) {
         item = 6 - item
-        console.log(`距离周末还有${item}天`)
+        data = `距离周末还有${item}天`
     } else {
-        console.log('好好享受周末吧')
+        data = '好好享受周末吧'
     }
-    return item
+    console.log(data)
+    return data
 }
 var startDate = Date.parse(fishMan);
 
 function festival(chinese, fmonth, fday) {
+    let data = ``
     let newfestival = new Date(`${year + 1},${fmonth},${fday}`)
     let endDate = Date.parse(newfestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     if (month == fmonth && day == fday) {
-        console.log(`今天就是${chinese}节，好好享受！`)
+        data=`今天就是${chinese}节，好好享受！`
     } else {
-        console.log(`距离${chinese}节还有${days}天`)
+        data = `距离${chinese}节还有${days}天`
     }
-    return days
+    console.log(data)
+    return data
 }
 
 function lastInfo() {
