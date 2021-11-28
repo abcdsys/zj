@@ -3,7 +3,7 @@
  *@create:12点38分
  */
 var weDay = new Date();
-var year = fishMan.getFullYear()
-var month = fishMan.getMonth();
-var day = fishMan.getDate();
-var hour = fishMan.getHours()
+var year = weDay.getFullYear()
+var month = weDay.getMonth();
+var day = weDay.getDate();
+var hour = weDay.getHours()
