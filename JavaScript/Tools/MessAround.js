@@ -23,6 +23,7 @@ function headInfo() {
 提醒您：${month + 1}月${day}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
 有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的!`
     console.log(data)
+    return data
 }
 
 function weekend() {
@@ -45,7 +46,7 @@ function festival(chinese, fmonth, fday) {
     let endDate = Date.parse(newfestival);
     let days = Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     if (month == fmonth && day == fday) {
-        info=`今天就是${chinese}节，好好享受！`
+        info = `今天就是${chinese}节，好好享受！`
     } else {
         info = `距离${chinese}节还有${days}天`
     }
