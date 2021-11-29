@@ -67,6 +67,7 @@ function main() {
     weekend()
     festival('元旦', 1, 1)
     festival('清明', 4, 4)
+    festival('劳动', 5, 1)
     festival('国庆', 10, 1)
     lastInfo()
     console.log(msg)
