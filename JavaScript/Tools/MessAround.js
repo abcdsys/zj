@@ -60,13 +60,25 @@ function lastInfo() {
     msg += info
     return info
 }
-(function main() {
+
+async function test() {
+    let festival = [
+        ['元旦', 1, 1],
+        ['清明', 4, 4]
+    ]
+    const n = festival.length;
+    for (let i = 0; i <= n; i++) {
+        console.log(festival[i])
+    }
+}
+(async function main() {
     headInfo()
     weekend()
-    festival('元旦', 1, 1)
+    await test()
+    /* festival('元旦', 1, 1)
     festival('清明', 4, 4)
     festival('劳动', 5, 1)
-    festival('国庆', 10, 1)
+    festival('国庆', 10, 1) */
     lastInfo()
     console.log(msg)
 })()
