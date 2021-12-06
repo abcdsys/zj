@@ -61,7 +61,7 @@ function lastInfo() {
     return info
 }
 
-async function festivalAll() {
+function festivalAll() {
     let festivalList = [
         ['元旦', 1, 1],
         ['清明', 4, 4]
@@ -71,7 +71,7 @@ async function festivalAll() {
         festival(festivalList[i])
     }
 }
-(async function main() {
+(function main() {
     headInfo()
     weekend()
     festivalAll()
