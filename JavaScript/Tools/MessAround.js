@@ -60,9 +60,7 @@ function lastInfo() {
     msg += info
     return info
 }
-
-
-function main() {
+(function main() {
     headInfo()
     weekend()
     festival('元旦', 1, 1)
@@ -71,5 +69,4 @@ function main() {
     festival('国庆', 10, 1)
     lastInfo()
     console.log(msg)
-}
-main()
+})()
