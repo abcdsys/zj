@@ -4,11 +4,11 @@
  */
 
 
-var fishMan = new Date()
-var year = fishMan.getFullYear()
-var month = fishMan.getMonth();
-var day = fishMan.getDate();
-var hour = fishMan.getHours()
+var fishMan = new Date(),
+    year = fishMan.getFullYear(),
+    month = fishMan.getMonth(),
+    day = fishMan.getDate(),
+    hour = fishMan.getHours();
 var msg = ''
 
 function headInfo() {
