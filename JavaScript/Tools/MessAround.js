@@ -24,7 +24,6 @@ function headInfo() {
 提醒您：${month + 1}月${day}日${mae}好，摸鱼人！工作再累，一定不要忘记摸鱼哦！
 有事没事起身去茶水间， 去厕所， 去廊道走走别老在工位上坐着， 钱是老板的, 但命是自己的! `
     msg += info
-    return info
 }
 
 function weekend() {
@@ -37,7 +36,6 @@ function weekend() {
         info = `\n好好享受周末吧\n`
     }
     msg += info
-    return info
 }
 var startDate = Date.parse(fishMan);
 
@@ -52,13 +50,12 @@ function festival([chinese, fmonth, fday]) {
         info = `距离${chinese}节还有${days}天\n`
     }
     msg += info
-    return info
 }
 
 function lastInfo() {
     let info = `上班是帮老板赚钱，摸鱼是赚老板的钱！最后，祝愿天下所有摸鱼人，都能愉快的渡过每一天…\n​`
     msg += info
-    return info
+    
 }
 
 function festivalAll() {
