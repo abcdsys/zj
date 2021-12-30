@@ -28,7 +28,7 @@ function headInfo() {
 
 function weekend() {
     let item = fishMan.getDay()
-    let info = ``
+
     if (item > 0 && item <= 5) {
         item = 6 - item
         info = `\n距离周末还有${item}天\n`
@@ -44,35 +44,27 @@ var startDate = Date.parse(fishMan);
  */
 
 function festival([chinese, fmonth, fday]) {
-    let info = 
+
+    let newFestivalData = new Date(`${year},${fmonth},${fday}`)
+    let newFestivalDataNext = new Date(`${year + 1},${fmonth},${fday}`)
+    let endDate = Date.parse(newFestivalData);
+    let endDateNext = Date.parse(newFestivalDataNext);
+    let days = calculate(endDate)+1
+    let daysNext = calculate(endDateNext)+1
     function calculate(endDate) {
         return Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     }
-    if (month == fmonth && day == fday) {
-        info = `今天就是${chinese}节，好好享受！\n`
-    } else if (month < fmonth) {
-        let newFestivalData = new Date(`${year},${fmonth},${fday}`)
-        let endDate = Date.parse(newFestivalData);
-        let days = calculate(endDate)
-        info = `距离${chinese}节还有${days}天\n`
-    } else if (month == fmonth && day < fday) {
-        let newFestivalData = new Date(`${year},${fmonth},${fday}`)
-        let endDate = Date.parse(newFestivalData);
-        let days = calculate(endDate); info = `距离${chinese}节还有${days}天\n`
-    } else if (month == fmonth && day > fday) {
-        let newFestivalData = new Date(`${year + 1},${fmonth},${fday}`)
-        let endDate = Date.parse(newFestivalData);
-        let days = calculate(endDate);
-        info = `距离${chinese}节还有${days}天\n`
+    if (month == fmonth) {
+        if (day == fday) {
+            info = `今天就是${chinese}节，好好享受！\n`
+        } else if (day < fday) {
+            info = `距离${chinese}节还有${days}天\n`
+        } else {
+            info = `距离${chinese}节还有${daysNext}天\n`
+        }
     } else if (month > fmonth) {
-        let newFestivalData = new Date(`${year + 1},${fmonth},${fday}`)
-        let endDate = Date.parse(newFestivalData);
-        let days = calculate(endDate);
-        info = `距离${chinese}节还有${days}天\n`
-    } else if (month < fmonth && day < fday) {
-        let newFestivalData = new Date(`${year + 1},${fmonth},${fday}`)
-        let endDate = Date.parse(newFestivalData);
-        let days = calculate(endDate);
+        info = `距离${chinese}节还有${daysNext}天\n`
+    } else {
         info = `距离${chinese}节还有${days}天\n`
     }
     msg += info
@@ -87,9 +79,12 @@ function lastInfo() {
 function festivalAll() {
     let festivalList = [
         ['元旦', 1, 1],
-        ['清明', 4, 4],
+        ['清明', 4, 5], 
         ['劳动', 5, 1],
-        ['国庆', 10, 11],
+        ['国庆', 10, 1],
+
+
+
     ]
     const n = festivalList.length;
     for (let i = 0; i < n; i++) {
