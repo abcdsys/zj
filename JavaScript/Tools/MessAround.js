@@ -45,12 +45,12 @@ var startDate = Date.parse(fishMan);
 
 function festival([chinese, fmonth, fday]) {
 
-    newFestivalData = new Date(`${year},${fmonth},${fday}`)
-    newFestivalDataNext = new Date(`${year + 1},${fmonth},${fday}`)
-    endDate = Date.parse(newFestivalData);
-    endDateNext = Date.parse(newFestivalDataNext);
-    days = calculate(endDate) + 1
-    daysNext = calculate(endDateNext) + 1
+    const newFestivalData = new Date(`${year},${fmonth},${fday}`)
+    const newFestivalDataNext = new Date(`${year + 1},${fmonth},${fday}`)
+    const endDate = Date.parse(newFestivalData);
+    const endDateNext = Date.parse(newFestivalDataNext);
+    const days = calculate(endDate) + 1
+    const daysNext = calculate(endDateNext) + 1
 
     function calculate(endDate) {
         return Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
