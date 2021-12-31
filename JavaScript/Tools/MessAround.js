@@ -45,12 +45,13 @@ var startDate = Date.parse(fishMan);
 
 function festival([chinese, fmonth, fday]) {
 
-    let newFestivalData = new Date(`${year},${fmonth},${fday}`)
-    let newFestivalDataNext = new Date(`${year + 1},${fmonth},${fday}`)
-    let endDate = Date.parse(newFestivalData);
-    let endDateNext = Date.parse(newFestivalDataNext);
-    let days = calculate(endDate)+1
-    let daysNext = calculate(endDateNext)+1
+    newFestivalData = new Date(`${year},${fmonth},${fday}`)
+    newFestivalDataNext = new Date(`${year + 1},${fmonth},${fday}`)
+    endDate = Date.parse(newFestivalData);
+    endDateNext = Date.parse(newFestivalDataNext);
+    days = calculate(endDate) + 1
+    daysNext = calculate(endDateNext) + 1
+
     function calculate(endDate) {
         return Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
     }
@@ -79,7 +80,7 @@ function lastInfo() {
 function festivalAll() {
     let festivalList = [
         ['元旦', 1, 1],
-        ['清明', 4, 5], 
+        ['清明', 4, 5],
         ['劳动', 5, 1],
         ['国庆', 10, 1],
 
