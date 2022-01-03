@@ -83,12 +83,61 @@ function festivalAll() {
         ['清明', 4, 5],
         ['劳动', 5, 1],
         ['国庆', 10, 1],
-
+        ['圣诞', 12, 25],
+        ['情人', 2, 14],
+        ['妇女', 3, 1],
     ]
-    
-    const n = festivalList.length;
+
+    function paixu([...arr]) {
+
+        //获取今日参数
+        var fishMan = new Date(),
+            month = fishMan.getMonth() + 1,
+            day = fishMan.getDate();
+        var today = [month, day]
+
+        //数组长度小于2直接输出
+        if (arr.length < 2) {
+            return arr;
+        }
+
+        //遍历排序
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j][1] > arr[j + 1][1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                } else if (arr[j][1] == arr[j + 1][1]) {
+                    if (arr[j][2] > arr[j + 1][2]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        //加入今天数据再次排序[5,6]
+        for (var m = 0; m < arr.length - 1; m++) {
+            if (today[0] > arr[m][1]) {
+                //无事发生，继续遍历
+            } else if (today[0] == arr[m][1]) {
+                if (today[1] > arr[m][2]) {
+                    //无事发生，继续遍历
+                } else if (today[1] > arr[m][2]) {
+
+                }
+            } else {
+                var arr1 = [];
+                return newarr = arr1.concat(arr.slice(m), arr.slice(0, m))
+            }
+        }
+        return arr;
+    }
+    const n = paixu(festivalList).length;
     for (let i = 0; i < n; i++) {
-        festival(festivalList[i])
+        festival(paixu(festivalList)[i])
     }
 }
 (function () {
