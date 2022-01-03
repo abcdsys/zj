@@ -84,9 +84,8 @@ function festivalAll() {
         ['劳动', 5, 1],
         ['国庆', 10, 1],
 
-
-
     ]
+    
     const n = festivalList.length;
     for (let i = 0; i < n; i++) {
         festival(festivalList[i])
