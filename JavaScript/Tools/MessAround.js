@@ -1,22 +1,17 @@
-/* 
- *@authot:  Mol
- *@create: 2021-11-24-20/20-20
+/**
+ * @Created by Mol on 2022/01/03
+ * @description 节假日列表
  */
 
- /**
-  * @Created by Mol on 2022/01/03
-  * @description 节假日列表
-  */
- 
-    let festivalList = [
-        ['元旦', 1, 1],
-        ['清明', 4, 5],
-        ['劳动', 5, 1],
-        ['国庆', 10, 1],
-        ['圣诞', 12, 25],
-        ['情人', 2, 14],
-        ['妇女', 3, 1],
-    ]
+let festivalList = [
+    ['元旦', 1, 1],
+    ['清明', 4, 5],
+    ['劳动', 5, 1],
+    ['国庆', 10, 1],
+    ['圣诞', 12, 25],
+    ['情人', 2, 14],
+    ['妇女', 3, 1],
+]
 
 var fishMan = new Date(),
     year = fishMan.getFullYear(),
