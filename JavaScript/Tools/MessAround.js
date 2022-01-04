@@ -89,7 +89,7 @@ function lastInfo() {
 function festivalAll() {
 
 
-    function paixu([...arr]) {
+    function listChange([...arr]) {
 
         //获取今日参数
         var fishMan = new Date(),
@@ -136,9 +136,9 @@ function festivalAll() {
         }
         return arr;
     }
-    const n = paixu(festivalList).length;
+    const n = listChange(festivalList).length;
     for (let i = 0; i < n; i++) {
-        festival(paixu(festivalList)[i])
+        festival(listChange(festivalList)[i])
     }
 }
 (function () {
