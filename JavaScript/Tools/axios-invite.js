@@ -13,7 +13,7 @@ var config = {
 };
 
 axios(config)
-    .then( (resp) =>{
+    .then( (data) =>{
         data = JSON.parse(data);
         jumpUrl = data['data']['jumpUrl']
         // console.log(jumpUrl)
