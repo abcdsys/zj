@@ -2,8 +2,8 @@
  *@author:Mol
  *@create:12点38分
  */
-var weDay = new Date();
-var year = weDay.getFullYear()
-var month = weDay.getMonth();
-var day = weDay.getDate();
-var hour = weDay.getHours()
+var weDay = new Date(),
+    year = weDay.getFullYear(),
+    month = weDay.getMonth(),
+    day = weDay.getDate(),
+    hour = weDay.getHours();
