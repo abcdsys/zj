@@ -1,5 +1,5 @@
 const axios = require('axios');
-const code = "12.0:/#FAZ0JFzU9Gb5Qz%"
+const code = "28:/#3BytY2Ww5aAFK%扌丁kai鶁崠，そ幫我助力ひ赚赏金"
 const data = JSON.stringify({
     "code": code
 });
