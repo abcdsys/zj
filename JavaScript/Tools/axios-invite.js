@@ -1,5 +1,8 @@
 const axios = require('axios');
-const code = "28:/#3BytY2Ww5aAFK%扌丁kai鶁崠，そ幫我助力ひ赚赏金"
+const readlineSync = require('readline-sync');
+
+const code = readlineSync.question('May I have your name? ');
+
 const data = JSON.stringify({
     "code": code
 });
@@ -13,13 +16,13 @@ var config = {
 };
 
 axios(config)
-    .then( (data) =>{
-        data = JSON.parse(data);
-        jumpUrl = data['data']['jumpUrl']
-        // console.log(jumpUrl)
-        let inviteId = jumpUrl.match(/inviteId=(\S*?)&/)[1]
-        console.log(inviteId)
-        
+    .then((resp) => {
+        // console.log(JSON.stringify(resp.data));
+        const jumpUrl = resp.data['data']['jumpUrl']
+        console.log(jumpUrl)
+        // const emreg = /(?<=&inviteId=).*(?=&mpin)/g;
+        const emreg = /(?<=inviteId=).*(?=&encryptedPin=)/g;    //城城
+        console.log("This inviteId is:\n" + emreg.exec(jumpUrl))
     })
     .catch(function (err) {
         console.log(err);
