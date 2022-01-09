@@ -113,7 +113,7 @@ function city_lotteryAward() {
                 } else {
                     if (safeGet(data)) {
                         console.log(`抽奖结果：${data}`);
-                        // data = JSON.parse(data);
+                        data = JSON.parse(data);
                         console.log(`剩余次数：${data['data']['result']['lotteryNum']}`)
                         if (data['data']['bizCode'] != 0) {        //次数0
                             return 0
