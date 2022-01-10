@@ -208,7 +208,7 @@ function getInfo(inviteId, flag = false) {
                                         lotteryTaskVos,
                                         taskVos, userScore
                                     } = taskDetailResultVo;
-                                    console.log(taskDetailResultVo);
+                                    // console.log(taskDetailResultVo);
                                     for (let lotteryTask of lotteryTaskVos) {
                                         if (lotteryTask.times >= lotteryTask.maxTimes && lotteryTask.times !== undefined) {
                                             for (let lo of lotteryTask?.badgeAwardVos || []) {
