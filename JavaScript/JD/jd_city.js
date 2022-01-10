@@ -189,6 +189,7 @@ function getInfo(inviteId, flag = false) {
                         data = JSON.parse(data);
                         if (data.code === 0) {
                             if (data.data && data['data']['bizCode'] === 0) {
+                                // console.log(data.data.result);
                                 if (flag) {
                                     console.log(`【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${data.data && data.data.result.userActBaseInfo.inviteId}`);
                                     if (data.data && data.data.result.userActBaseInfo.inviteId) {
@@ -205,8 +206,9 @@ function getInfo(inviteId, flag = false) {
                                     } = data.data.result.taskInfo;
                                     const {
                                         lotteryTaskVos,
-                                        taskVos
+                                        taskVos, userScore
                                     } = taskDetailResultVo;
+                                    console.log(taskDetailResultVo);
                                     for (let lotteryTask of lotteryTaskVos) {
                                         if (lotteryTask.times >= lotteryTask.maxTimes && lotteryTask.times !== undefined) {
                                             for (let lo of lotteryTask?.badgeAwardVos || []) {
