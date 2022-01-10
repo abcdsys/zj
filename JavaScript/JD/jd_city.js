@@ -206,9 +206,9 @@ function getInfo(inviteId, flag = false) {
                                     } = data.data.result.taskInfo;
                                     const {
                                         lotteryTaskVos,
-                                        taskVos, userScore
+                                        taskVos,
+                                        userScore
                                     } = taskDetailResultVo;
-                                    // console.log(taskDetailResultVo);
                                     for (let lotteryTask of lotteryTaskVos) {
                                         if (lotteryTask.times >= lotteryTask.maxTimes && lotteryTask.times !== undefined) {
                                             for (let lo of lotteryTask?.badgeAwardVos || []) {
@@ -218,32 +218,33 @@ function getInfo(inviteId, flag = false) {
                                             }
                                         }
                                     }
-                                    // for (let task of taskVos || []) {
-                                    //   const t = Date.now();
-                                    //   if (task.status === 1 && t >= task.taskBeginTime && t < task.taskEndTime) {
-                                    //     const id = task.taskId, max = task.maxTimes;
-                                    //     const waitDuration = task.waitDuration || 0;
-                                    //     let time = task?.times || 0;
-                                    //     for (let ltask of task.shoppingActivityVos) {
-                                    //       if (ltask.status === 1) {
-                                    //         console.log(`去做任务：${ltask.title}`);
-                                    //         if (waitDuration) {
-                                    //           await $.wait(1500);
-                                    //           await city_doTaskByTk(id, ltask.taskToken, 1);
-                                    //           await $.wait(waitDuration * 1000);
-                                    //         }
-                                    //         await city_doTaskByTk(id, ltask.taskToken);
-                                    //         time++;
-                                    //         if (time >= max) break;
-                                    //       }
-                                    //     }
-                                    //     await $.wait(2500);
-                                    //   }
-                                    // }
+                                    for (let task of taskVos || []) {
+                                        const t = Date.now();
+                                        if (task.status === 1 && t >= task.taskBeginTime && t < task.taskEndTime) {
+                                            const id = task.taskId,
+                                                max = task.maxTimes;
+                                            const waitDuration = task.waitDuration || 0;
+                                            let time = task?.times || 0;
+                                            for (let ltask of task.shoppingActivityVos) {
+                                                if (ltask.status === 1) {
+                                                    console.log(`去做任务：${ltask.title}`);
+                                                    if (waitDuration) {
+                                                        await $.wait(1500);
+                                                        await city_doTaskByTk(id, ltask.taskToken, 1);
+                                                        await $.wait(waitDuration * 1000);
+                                                    }
+                                                    await city_doTaskByTk(id, ltask.taskToken);
+                                                    time++;
+                                                    if (time >= max) break;
+                                                }
+                                            }
+                                            await $.wait(2500);
+                                        }
+                                    }
                                 }
                                 for (let vo of data.data.result && data.data.result.mainInfos || []) {
                                     if (vo && vo.remaingAssistNum === 0 && vo.status === "1") {
-                                        console.log(vo.roundNum)
+                                        // console.log(vo.roundNum)
                                         await receiveCash(vo.roundNum)
                                         await $.wait(2 * 1000)
                                     }
@@ -286,7 +287,7 @@ function receiveCash(roundNum, type = '') {
                     console.log(`${$.name} API请求失败，请检查网路重试`)
                 } else {
                     if (safeGet(data)) {
-                        console.log(`领红包结果${data}`);
+                        // console.log(`领红包结果${data}`);
                         data = JSON.parse(data);
                         if (data['data']['bizCode'] === 0) {
                             console.log(`获得 ${data.data.result.currentTimeCash} 元，共计 ${data.data.result.totalCash} 元`)
@@ -373,7 +374,7 @@ function city_doTaskByTk(taskId, taskToken, actionType = 0) {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                        console.log(JSON.stringify(data))
+                        console.log(data)
                     }
                 }
             } catch (e) {
