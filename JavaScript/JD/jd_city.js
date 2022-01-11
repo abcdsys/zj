@@ -374,7 +374,7 @@ function city_doTaskByTk(taskId, taskToken, actionType = 0) {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                        console.log(data)
+                        console.log(data.data.bizMsg)
                     }
                 }
             } catch (e) {
