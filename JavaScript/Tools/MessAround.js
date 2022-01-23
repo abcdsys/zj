@@ -47,10 +47,11 @@ function weekend() {
     msg += info
 }
 var startDate = Date.parse(fishMan);
+
 /**
- * @Created by Mol on 2021/12/29
- * @description 等待优化
- */
+* @Created by Mol on 2022/01/23
+* @description 判断是否过节
+*/
 
 function festival([chinese, fmonth, fday]) {
 
@@ -85,12 +86,13 @@ function lastInfo() {
     msg += info
 
 }
+/**
+* @Created by Mol on 2022/01/23
+* @description 节日列表整理
+*/
 
 function festivalAll() {
-
-
     function listChange([...arr]) {
-
         //获取今日参数
         var fishMan = new Date(),
             month = fishMan.getMonth() + 1,
@@ -101,7 +103,6 @@ function festivalAll() {
         if (arr.length < 2) {
             return arr;
         }
-
         //遍历排序
         for (var i = 0; i < arr.length - 1; i++) {
             for (var j = 0; j < arr.length - 1 - i; j++) {
