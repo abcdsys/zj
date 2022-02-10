@@ -5,7 +5,7 @@ const data = JSON.stringify({
 });
 var config = {
     method: 'post',
-    url: 'https://api.jds.codes/jCommand',
+    url: 'https://api.jds.codes/jd/jcommand',
     headers: {
         'Content-Type': 'application/json'
     },
@@ -17,9 +17,9 @@ axios(config)
         // console.log(JSON.stringify(resp.data));
         const jumpUrl = resp.data['data']['jumpUrl']
         console.log(jumpUrl)
-        // const inviteId = jumpUrl.split('inviteId=')[-1].split('&mpin')[0].split('&encryptedPin')[0]
-        // console.log("This inviteId is:\n" + inviteId)
+            // const inviteId = jumpUrl.split('inviteId=')[-1].split('&mpin')[0].split('&encryptedPin')[0]
+            // console.log("This inviteId is:\n" + inviteId)
     })
-    .catch(function (err) {
+    .catch(function(err) {
         console.log(err);
     });
