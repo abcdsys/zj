@@ -2,7 +2,7 @@
 set /p needWehat=请输入多开微信的数量----
 @REM echo 您输入的内容为%needWehat%  
 
-@REM 循环输出needWehat个数字
+@REM 循环输出needWehat个数的微信
 for /l %%i in (1,1,%needWehat%) do (
 start "" "D:\WeChat\WeChat.exe"
 )

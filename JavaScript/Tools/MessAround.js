@@ -3,7 +3,8 @@
  * @description 节假日列表
  */
 
-let festivalList = [
+let festival_list = [
+  ["春节", 2, 22],
   ["元旦", 1, 1],
   //   ["清明", 4, 5],
   ["劳动", 5, 1],
@@ -11,13 +12,15 @@ let festivalList = [
   ["圣诞", 12, 25],
   ["情人", 2, 14],
   ["妇女", 3, 1],
+  ["植树", 3, 12],
+  ["愚人", 4, 1],
 ];
 
 const fishMan = new Date(),
   year = fishMan.getFullYear(),
   month = fishMan.getMonth() + 1,
   day = fishMan.getDate();
-var msg = "";
+let message = "";
 
 function headInfo() {
   const hour = fishMan.getHours();
@@ -29,8 +32,8 @@ function headInfo() {
   } else if ((hour >= 18 && hour < 24) || hour < 6) {
     mae = "晚上";
   }
-  let info = `【摸鱼办】提醒您：${month}月${day}日${mae}好,摸鱼人！\n工作再累,一定不要忘记摸鱼哦！\n有事没事起身去茶水间,去厕所,去廊道走走别老在工位上坐着, 钱是老板的, 但命是自己的!`;
-  msg += info;
+
+  message += `【摸鱼办】提醒您：${month}月${day}日${mae}好,摸鱼人！\n工作再累,一定不要忘记摸鱼哦！\n有事没事起身去茶水间,去厕所,去廊道走走别老在工位上坐着, 钱是老板的, 但命是自己的!`;
 }
 /**
  * @Created by Mol on 2023/02/12
@@ -43,7 +46,7 @@ function weekend() {
   today > 0 && today <= 5
     ? (info = `\n距离周末还有${6 - today}天\n`)
     : (info = `\n好好享受周末吧\n`);
-  msg += info;
+  message += info;
 }
 
 var startDate = Date.parse(fishMan);
@@ -64,6 +67,7 @@ function festival([chinese, fmonth, fday]) {
   function calculate(endDate) {
     return Math.round((endDate - startDate) / (1 * 24 * 60 * 60 * 1000));
   }
+
   if (month == fmonth) {
     if (day == fday) {
       info = `今天就是${chinese}节,好好享受！\n`;
@@ -77,66 +81,52 @@ function festival([chinese, fmonth, fday]) {
   } else {
     info = `距离${chinese}节还有${days}天\n`;
   }
-  msg += info;
+  message += info;
 }
 
-function lastInfo() {
-  let info = `上班是帮老板赚钱,摸鱼是赚老板的钱！最后,祝愿天下所有摸鱼人,都能愉快的渡过每一天…\n​`;
-  msg += info;
+function last_info() {
+  message += `上班是帮老板赚钱,摸鱼是赚老板的钱！最后,祝愿天下所有摸鱼人,都能愉快的渡过每一天…\n​`;
 }
 /**
  * @Created by Mol on 2022/01/23
  * @description 节日列表整理
  */
 
-function festivalAll() {
-  for (let i = 0; i < listChange(festivalList).length; i++) {
-    festival(listChange(festivalList)[i]);
+function sort(arr) {
+  arr.sort(([_, afterMonth, afterDay], [_1, beforeMonth, beforeDay]) => {
+    if (
+      afterMonth < beforeMonth ||
+      (afterMonth === beforeMonth && afterDay < beforeDay)
+    ) {
+      return -1;
+    }
+  });
+  //   console.log(arr);
+  const now = new Date();
+  const nowMonth = now.getMonth() + 1;
+  const nowDay = now.getDate();
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+    const [_, month, day] = arr[i];
+    if (month > nowMonth || (month === nowMonth && day > nowDay)) {
+      arr.unshift(...arr.splice(i, len - i));
+      break;
+    }
   }
+  return arr;
 }
 
-function listChange([...arr]) {
-  //获取今日参数
-  const today = [month, day];
-  //数组长度小于2直接输出
-  if (arr.length < 2) {
-    return arr;
-  }
-
-  //遍历排序
-  for (var i = 0; i < arr.length - 1; i++) {
-    for (var j = 0; j < arr.length - 1 - i; j++) {
-      if (arr[j][1] > arr[j + 1][1]) {
-        var temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      } else if (arr[j][1] == arr[j + 1][1]) {
-        if (arr[j][2] > arr[j + 1][2]) {
-          var temp = arr[j];
-          arr[j] = arr[j + 1];
-          arr[j + 1] = temp;
-        }
-      }
-    }
-  }
-
-  //加入今天数据再次排序
-  let arr1 = [];
-  for (var m = 0; m < arr.length - 1; m++) {
-     if (today[0] == arr[m][1]) {
-      if (today[1] < arr[m][2]) {
-        return arr1.concat(arr.slice(m), arr.slice(0, m));
-      } else if (today[1] > arr[m][2]) {
-        //无事发生,继续遍历
-      }
-    }
+function festivalAll() {
+  for (let i = 0; i < festival_list.length; i++) {
+    festival(festival_list[i]);
   }
 }
 
 (function () {
   headInfo();
   weekend();
+  sort(festival_list);
   festivalAll();
-  lastInfo();
-  console.log(msg);
+  last_info();
+  console.log(message);
 })();
