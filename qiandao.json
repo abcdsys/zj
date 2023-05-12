@@ -1,0 +1,5 @@
+hostname=*.aliyundrive.com,gms.ihaoqu.com,m.reduxingke.com
+
+^https:\/\/auth.aliyundrive.com\/v2\/account\/token url script-response-body http://script.david2023.top/scripts/qd.js
+gmswx/app.php url script-request-body http://script.david2023.top/scripts/qd.js
+api/user url script-request-header http://script.david2023.top/scripts/qd.js
